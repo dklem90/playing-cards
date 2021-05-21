@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>playing_cards_app</RootNamespace>
+    <RootNamespace>PlayingCardsApp</RootNamespace>
   </PropertyGroup>
 
 </Project>

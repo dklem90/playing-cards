@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace playing_cards_app
+namespace PlayingCardsApp
 {
     class Program
     {
