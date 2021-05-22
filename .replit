@@ -1,2 +1,2 @@
-language = "bash"
+language = "csharp"
 run = "dotnet run"
