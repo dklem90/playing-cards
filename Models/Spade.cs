@@ -4,10 +4,10 @@ using PlayingCardsApp.Models;
 
 namespace PlayingCardsApp.Models
 {
-    public class Heart : Card
+    public class Spade : Card
     {
-        suit = "HEART";
+        suit = "SPADE";
 
-        public Heart(){ }
+        public Spade(){ }
     }
 }

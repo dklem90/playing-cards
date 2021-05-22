@@ -5,8 +5,9 @@ namespace PlayingCardsApp.Models
     public abstract class Card
     {
         public string Suit;
-        public string Value;
 
         public Card() {}
+        
+        public string Value { get; set; }
     }
 }
