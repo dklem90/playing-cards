@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace PlayingCardsApp.Models
 {
@@ -6,8 +7,10 @@ namespace PlayingCardsApp.Models
     {
         public string Suit;
 
-        public Card() {}
-        
+        public Card() { }
+
         public string Value { get; set; }
+
+        public abstract List<Card> InitializeDeck();
     }
 }
