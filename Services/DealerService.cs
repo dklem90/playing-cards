@@ -1,5 +1,8 @@
+using System.Security.Cryptography;
 using System;
 using System.Collections.Generic;
+
+
 
 using PlayingCardsApp.Models;
 
@@ -14,7 +17,7 @@ namespace PlayingCardsApp.Services
 
         }
 
-        public void ShuffleDeck(List<Card> cardDeck)
+        public List<Card> ShuffleDeck(List<Card> cardDeck)
         {
 
         }
