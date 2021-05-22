@@ -10,6 +10,7 @@ namespace PlayingCardsApp.Models
         public Card() { }
 
         public string Value { get; set; }
+        public int Rank { get; set; }
 
         public abstract List<Card> InitializeDeck();
     }

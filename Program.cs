@@ -1,5 +1,6 @@
 ﻿using System;
 
+using PlayingCardsApp.Services;
 using PlayingCardsApp.Models;
 
 namespace PlayingCardsApp
@@ -8,11 +9,8 @@ namespace PlayingCardsApp
     {
         static void Main(string[] args)
         {
-            Card card = new Heart();
-            card.Value = "ACE";
-
-            Console.WriteLine(card.Suit);
-            Console.WriteLine(card.Value);
+            DealerService dealer = new DealerService();
+            Card card = new Club();
         }
     }
 }
