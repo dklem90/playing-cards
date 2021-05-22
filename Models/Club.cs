@@ -5,13 +5,12 @@ namespace PlayingCardsApp.Models
 {
     public class Club : Card
     {
-        public Club()
+        public Club(string value, int rank)
         {
             this.Suit = "CLUB";
+            this.Value = value;
+            this.Rank = rank;
         }
-
-        public string Value { get; set; }
-        public int Rank { get; set; }
 
         public override List<Card> InitializeDeck()
         {
