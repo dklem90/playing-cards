@@ -1,12 +1,16 @@
 using System;
 
+using System.Collections.Generic;
+
 namespace PlayingCardsApp.Models
 {
-    public class Diamond : Card
+    public class Diamond : PlayingCard
     {
-        public Diamond()
+        public Diamond(int rank, string value)
         {
-            this.Suit = "DIAMOND";
+            this.Suit = "Diamond";
+            this.Value = value;
+            this.Rank = rank;
         }
     }
 }

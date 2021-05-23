@@ -1,12 +1,16 @@
 using System;
 
+using System.Collections.Generic;
+
 namespace PlayingCardsApp.Models
 {
-    public class Spade : Card
+    public class Spade : PlayingCard
     {
-        public Spade()
+        public Spade(int rank, string value)
         {
-            this.Suit = "SPADE";
+            this.Suit = "Spade";
+            this.Rank = rank;
+            this.Value = value;
         }
     }
 }
