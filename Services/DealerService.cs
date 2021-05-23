@@ -16,6 +16,11 @@ namespace PlayingCardsApp.Services
             this.Factory = factory;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="suits"></param>
+        /// <returns>List<PlayingCard> class instance</returns>
         public List<PlayingCard> CreateDeck(List<string> suits)
         {
             Console.WriteLine("Creating the deck of cards...");
@@ -27,6 +32,12 @@ namespace PlayingCardsApp.Services
             return cards;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cards"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public List<PlayingCard> DealCards(List<PlayingCard> cards, int count)
         {
             if (cards.Count == 0)
