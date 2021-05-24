@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-
-using PlayingCardsApp.Models;
-
 namespace PlayingCardsApp.Models
 {
     public class Club : PlayingCard

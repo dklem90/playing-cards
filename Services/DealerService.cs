@@ -1,9 +1,8 @@
-using System;
-using System.Linq;
-using System.Collections.Generic;
-
+using PlayingCardsApp.Data;
 using PlayingCardsApp.Models;
 using PlayingCardsApp.Utils;
+using System;
+using System.Collections.Generic;
 
 namespace PlayingCardsApp.Services
 {
@@ -17,7 +16,7 @@ namespace PlayingCardsApp.Services
         }
 
         /// <summary>
-        /// 
+        /// The CreateDeck method returns a deck of cards using the provided suits.
         /// </summary>
         /// <param name="suits"></param>
         /// <returns>List<PlayingCard> class instance</returns>
@@ -25,32 +24,35 @@ namespace PlayingCardsApp.Services
         {
             Console.WriteLine("Creating the deck of cards...");
             List<PlayingCard> cards = new List<PlayingCard>();
-            foreach (string suit in suits)
+            foreach(string suit in suits)
             {
-                cards.AddRange(InitializeDeck(suit));
+                cards.AddRange(InitializeSuit(suit));
             }
             return cards;
         }
 
         /// <summary>
-        /// 
+        /// The DealCards method returns the 
         /// </summary>
-        /// <param name="cards"></param>
+        /// <param name="deckOfCards"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public List<PlayingCard> DealCards(List<PlayingCard> cards, int count)
+        public List<PlayingCard> DealCards(List<PlayingCard> deckOfCards, int count)
         {
-            if (cards.Count == 0)
+            Console.WriteLine($"Dealing {count} cards...");
+            List<PlayingCard> cards = new List<PlayingCard>();
+            if(deckOfCards.Count == 0)
             {
                 Console.WriteLine("Sorry, the deck is empty");
-                return cards;
+                return deckOfCards;
             }
 
-            while (count > 0)
+            while(count > 0)
             {
-                PlayingCard card = cards[0];
+                PlayingCard card = deckOfCards[0];
                 card.Display();
-                cards.RemoveAt(0);
+                cards.Add(card);
+                deckOfCards.RemoveAt(0);
                 count--;
             }
 
@@ -58,40 +60,41 @@ namespace PlayingCardsApp.Services
         }
 
         /// <summary>
-        /// 
+        /// The DealOneCard method returns the first card from the given deck and removes it.
         /// </summary>
-        /// <param name="cards"></param>
-        public List<PlayingCard> DealOneCard(List<PlayingCard> cards)
+        /// <param name="deckOfCards"></param>
+        public PlayingCard DealOneCard(List<PlayingCard> deckOfCards)
         {
-            PlayingCard card = cards[0];
+            Console.WriteLine("Dealing 1 card...");
+            PlayingCard card = deckOfCards[0];
             card.Display();
-            cards.RemoveAt(0);
-            return cards;
+            deckOfCards.RemoveAt(0);
+            return card;
         }
 
         /// <summary>
-        /// 
+        /// The IntializeDeck method creates the 14 playing cards needed for each suit.
         /// </summary>
         /// <param name="suit"></param>
-        /// <returns></returns>
-        public List<PlayingCard> InitializeDeck(string suit)
+        /// <returns>List<PlayingCard> Class instance</returns>
+        public List<PlayingCard> InitializeSuit(string suit)
         {
-            List<PlayingCard> cards = new List<PlayingCard>();
+            List<PlayingCard> deckOfCards = new List<PlayingCard>();
 
             int currentRank = 13;
-            for (int i = 2; i <= 10; i++)
+            for(int i = 2; i <= 10; i++)
             {
-                cards.Add(Factory.CreatePlayingCard(suit, currentRank, i.ToString()));
+                deckOfCards.Add(Factory.CreatePlayingCard(suit, currentRank, i.ToString()));
                 currentRank--;
             }
 
             // Add the face cards to the deck
-            cards.Add(Factory.CreatePlayingCard(suit, 4, "Jack"));
-            cards.Add(Factory.CreatePlayingCard(suit, 3, "Queen"));
-            cards.Add(Factory.CreatePlayingCard(suit, 2, "King"));
-            cards.Add(Factory.CreatePlayingCard(suit, 1, "Ace"));
+            deckOfCards.Add(Factory.CreatePlayingCard(suit, 4, "Jack"));
+            deckOfCards.Add(Factory.CreatePlayingCard(suit, 3, "Queen"));
+            deckOfCards.Add(Factory.CreatePlayingCard(suit, 2, "King"));
+            deckOfCards.Add(Factory.CreatePlayingCard(suit, 1, "Ace"));
 
-            return cards;
+            return deckOfCards;
         }
 
         /// <summary>
@@ -103,27 +106,12 @@ namespace PlayingCardsApp.Services
             Console.WriteLine("Shuffling the deck...");
             Random rand = new Random();
 
-            foreach (PlayingCard card in cards)
+            for(int i = 0; i < cards.Count; i++)
             {
                 int cardOneIdx = rand.Next(cards.Count - 1);
                 int cardTwoIdx = rand.Next(cards.Count - 1);
-                Utilities.Swap<PlayingCard>(cards, cardOneIdx, cardTwoIdx);
+                Utilities.Swap(cards, cardOneIdx, cardTwoIdx);
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="cards"></param>
-        /// <returns></returns>
-        public List<PlayingCard> SortByRank(List<PlayingCard> cards)
-        {
-            return cards.OrderBy(x => x.Rank).ToList();
-        }
-
-        public List<PlayingCard> SortBySuit(List<PlayingCard> cards)
-        {
-            return cards.OrderBy(x => x.Suit).ToList();
         }
     }
 }

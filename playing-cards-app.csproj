@@ -6,4 +6,16 @@
     <RootNamespace>PlayingCardsApp</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="..\DependencyValidation1\DependencyValidation1.layerdiagram" Link="DependencyValidation1.layerdiagram">
+      <Visible>False</Visible>
+    </AdditionalFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\DependencyValidation1\DependencyValidation2.layerdiagram" Link="DependencyValidation2.layerdiagram">
+      <Visible>False</Visible>
+    </AdditionalFiles>
+  </ItemGroup>
+
 </Project>

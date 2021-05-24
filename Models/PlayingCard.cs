@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace PlayingCardsApp.Models
 {
@@ -13,7 +12,21 @@ namespace PlayingCardsApp.Models
 
         public void Display()
         {
-            Console.WriteLine($"{Value} of {Suit}");
+            Console.WriteLine($"{Value} of {Suit}s");
+        }
+
+        public override bool Equals(object obj)
+        {
+            PlayingCard playingCard = (PlayingCard)obj;
+            if(playingCard == null)
+                return false;
+            else
+                return (Suit == playingCard.Suit && Rank == playingCard.Rank && Value == playingCard.Value);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Rank.GetHashCode();
         }
     }
 }
